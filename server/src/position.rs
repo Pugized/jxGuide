@@ -23,21 +23,32 @@ struct Position {
 #[get("/position/current")]
 pub(crate) fn get_current_position() -> Json<PositionId> {
     let mut rng = rand::rng();
-    Json(PositionId { id: rng.random_range(0..100000000) })
+    Json(PositionId { id: 1 })
+    // 1 或 2，可改
 }
+
+let places=[Position {
+    x: 20.0,
+    y: 20.0,
+    floor: 1,
+    name: "图书馆".into(),
+    brief: "学校图书中心".into(),
+    detail: "这里有丰富的图书资源，供学生和教职工借阅。".into()
+},
+Position {
+    x: 70.0,
+    y: 50.0,
+    floor: 2,
+    name: "体育馆".into(),
+    brief: "学校体育活动场所".into(),
+    detail: "这里有各种体育设施，供学生锻炼和比赛使用。".into()
+}];
+
 
 #[get("/position/<id>")]
 pub(crate) fn get_position_by_id(id: u32) -> Json<Position> {
     let mut rng = rand::rng();
     Json(
-        Position {
-            x: rng.random_range(0.0..100.0),
-            y: rng.random_range(0.0..100.0),
-            floor: rng.random_range(1..5),
-            name: "Position Name".into(),
-            building: "Building Name".into(),
-            brief: "This is a brief description.".into(),
-            detail: "This is a detailed description of the position.".into()
-        }
+        places[(id as usize - 1) % places.len()].clone()
     )
 }

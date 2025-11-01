@@ -1,14 +1,10 @@
 <script setup lang="ts">
+import './assets/jq.min.js';
 </script>
 
 <template>
 	<div id="app">
-		<header class="app-header">
-			<h1>学校 AI 智能导览</h1>
-		</header>
-		<main>
-			<router-view />
-		</main>
+		<router-view />
 	</div>
 </template>
 
