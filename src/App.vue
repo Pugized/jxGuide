@@ -8,8 +8,19 @@ import './assets/jq.min.js';
 	</div>
 </template>
 
-<style scoped>
-.app-header{background:#0f172a;color:white;padding:12px}
-.app-header h1{margin:0;font-size:18px}
-main{padding:16px}
+<style>
+:root{
+	--theme-blue: #1e4bbc;
+	/* --theme-blue-bright: #3b82f6; */
+	--theme-blue-bg: #1b3f93b0;
+	--theme-red: rgb(157, 45, 47);
+	--theme-red-bright: rgb(219, 0, 51);
+}
+*{
+  user-select: none;
+  box-sizing: border-box;
+}
+img{
+	-webkit-user-drag: none;
+}
 </style>

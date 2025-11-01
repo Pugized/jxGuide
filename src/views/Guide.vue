@@ -582,7 +582,7 @@ function markerScreenPos(p: Info) {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: #ef4444;
+  background: var(--theme-red-bright);
   box-shadow: 0 0 10px rgba(239, 68, 68, 0.6);
   transition: 100ms;
 }
@@ -591,7 +591,9 @@ function markerScreenPos(p: Info) {
   position: absolute;
   min-width: 140px;
   max-width: 42vw; /* 在手机上尽量不要太宽 */
-  background: rgba(255, 255, 255, 0.8);
+  /* background: rgba(255, 255, 255, 0.8); */
+  background-color: var(--theme-blue-bg);
+  color: #fff;
   border-radius: 10px;
   backdrop-filter: blur(10px) saturate(1.8);
   padding: 8px 10px;
@@ -608,12 +610,11 @@ function markerScreenPos(p: Info) {
 .mini-title {
   font-weight: 600;
   font-size: 14px;
-  color: #0f172a;
 }
 
 .mini-brief {
   font-size: 12px;
-  color: #475569;
+  opacity: 0.7;
   margin-top: 4px;
 }
 
@@ -622,7 +623,7 @@ function markerScreenPos(p: Info) {
   left: 50%;
   transform: translateX(-50%);
   top: 10px;
-  background: rgba(15, 23, 42, 0.9);
+  background: var(--theme-red);
   color: white;
   padding: 6px 10px;
   border-radius: 20px;
@@ -650,7 +651,8 @@ function markerScreenPos(p: Info) {
   align-items: center;
   background: rgba(255,255,255,0.8);
   backdrop-filter: blur(10px) saturate(180%);
-  padding: 6px;
+  padding: 5px;
+  border: 2px solid var(--theme-blue);
   border-radius: 10px;
   box-shadow: 0 6px 20px rgba(2,6,23,0.08);
   pointer-events: auto;
@@ -685,10 +687,10 @@ function markerScreenPos(p: Info) {
 .bottom-card{
   height: 60px;
   border-radius: 16px 16px 0 0;
-  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(15px) saturate(1.5);
   box-shadow: 0 -6px 20px rgba(2, 6, 23, 0.08);
-  border: 2px solid #99999940;
+  background: var(--theme-red);
+  border: 2px solid var(--theme-blue);
   border-bottom: none;
   transition: 200ms;
 }
@@ -700,6 +702,7 @@ function markerScreenPos(p: Info) {
   width: 100%;
   display: none;
   align-items: center;
+  color: #fff !important;
   justify-content: center;
 }
 
@@ -722,6 +725,7 @@ function markerScreenPos(p: Info) {
 
 .bottom-card.bottom-large {
   height: 75vh;
+  background: rgba(255, 255, 255, 0.8);
 }
 
 .bottom-card.bottom-full {
