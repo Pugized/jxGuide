@@ -1,6 +1,6 @@
 // API base URL reserved here. You can set VITE_API_BASE in .env to override.
 // export const API_BASE = 'http://10.210.251.152:8000/api'
-export const API_BASE = 'http://localhost/api'
+export const API_BASE = 'http://localhost:8000/api'
 export const BASE_URL = '/'
 export const AI_ROLE = '嘉祥AI';
 

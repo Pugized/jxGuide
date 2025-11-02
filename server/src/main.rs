@@ -1,6 +1,7 @@
 extern crate serde;
 extern crate serde_json;
-#[macro_use] extern crate rocket;
+#[macro_use]
+extern crate rocket;
 extern crate reqwest;
 
 mod position;
@@ -12,10 +13,7 @@ use rocket_cors::{AllowedOrigins, CorsOptions};
 #[launch]
 fn rocket() -> _ {
     rocket::build()
-        .mount("/api", routes![
-            get_current_position,
-            get_position_by_id
-        ])
+        .mount("/api", routes![get_current_position, get_position_by_id])
         .attach(
             CorsOptions {
                 allowed_origins: AllowedOrigins::all(),
@@ -23,7 +21,7 @@ fn rocket() -> _ {
                 ..Default::default()
             }
             .to_cors()
-            .expect("error while building CORS")
+            .expect("error while building CORS"),
         )
         .configure(rocket::Config {
             address: "0.0.0.0".parse().unwrap(),

@@ -1,12 +1,8 @@
 <script setup lang="ts">
-import { defineEmits, defineProps, onMounted, onUnmounted } from 'vue'
+import { onMounted, onUnmounted } from 'vue'
 import feather from 'feather-icons'
 import './chat.css'
-// @ts-ignore: module "./chat.js" has no declaration file (implicit any)
-import { _init } from './chat.js'
-
-// 你报错啥啊，错在哪？？？？
-// 这不能跑吗，你报什么错？？？？
+import './chat'
 
 console.log('Chat.vue loaded');
 // 接受传入 info（可为空），并 emit close / input focus blur
@@ -19,7 +15,7 @@ const emit = defineEmits<{
 }>()
 
 const iconClose = feather.icons['x']?.toSvg({ width: 16, height: 16 }) ?? ''
-const iconMessageCircle = feather.icons['message-circle']?.toSvg({ width: 16, height: 16 }) ?? ''
+//const iconMessageCircle = feather.icons['message-circle']?.toSvg({ width: 16, height: 16 }) ?? ''
 const iconSend = feather.icons['send']?.toSvg({ width: 16, height: 16 }) ?? ''
 
 function doClose() {
@@ -29,13 +25,12 @@ function doClose() {
 function onInputFocus() {
   emit('input-focus')
 }
-function onInputBlur() {
-  emit('input-blur')
-}
+// function onInputBlur() {
+//   emit('input-blur')
+// }
 
 // 新增：在组件挂载时调用全局初始化函数，传入获取当前 props.info 的方法
 onMounted(() => {
-  _init();
   // window.initChat 在 chat.js 中定义
   // if (typeof (window as any).initChat === 'function') {
   console.log('Initializing chat with info:', props.info);

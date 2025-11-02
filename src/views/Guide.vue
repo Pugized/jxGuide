@@ -132,7 +132,7 @@ let panStart = { x: 0, y: 0, tx: 0, ty: 0 }
 // touch 两指缩放
 let touchInitialDist = 0
 let touchInitialScale = 1
-let touchInitialCenter = { x: 0, y: 0 }
+// let touchInitialCenter = { x: 0, y: 0 }
 
 function clamp(v: number, a: number, b: number) {
   return Math.max(a, Math.min(b, v))
@@ -552,8 +552,10 @@ function markerScreenPos(p: Info) {
 /* 地图图片默认样式（不使用百分比撑满，以便按 natural size 显示并缩放） */
 #map-image {
   display: block;
-  user-drag: none;
+  -moz-user-drag: none;
   -webkit-user-drag: none;
+  -ms-user-drag: none;
+  user-select: none;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
