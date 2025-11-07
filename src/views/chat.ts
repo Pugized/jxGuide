@@ -152,9 +152,9 @@ export class Chat {
   public static bootstrap(info = {}): void {
     currentInfo = info;
     const container = document.getElementById("chat-messages");
-    const input = document.getElementById("message-input");
-    const sendBtn = document.getElementById("send-button");
-    const newChatBtn = document.getElementById("new-chat-button");
+    const input = document.getElementById("message-input") as HTMLInputElement;
+    const sendBtn = document.getElementById("send-button") as HTMLButtonElement;
+    const newChatBtn = document.getElementById("new-chat-button") as HTMLButtonElement;
 
     if (!container || !input || !sendBtn || !newChatBtn) {
       // DOM 可能尚未挂载，稍后再试
@@ -178,8 +178,8 @@ export class Chat {
     function setSendingState(isSending: boolean) {
       streaming = isSending;
       // 更新按钮/输入状态，但不要替换整个按钮内容（保留图标 span）
-      if (newChatBtn) (newChatBtn as any).disabled = isSending;
-      if (input) (input as any).disabled = isSending;
+      if (newChatBtn) newChatBtn.disabled = isSending;
+      if (input) input.disabled = isSending;
 
       // 按钮内部结构： .btn-icon, .btn-text；图标 svg 存在于 dataset 中
       const sendIconEl = sendBtn?.querySelector(".btn-icon");
@@ -315,9 +315,9 @@ export class Chat {
         currentAbortController.abort();
         return;
       }
-      const text = (input as any).value.trim();
+      const text = input.value.trim();
       if (!text) return;
-      (input as any).value = "";
+      input.value = "";
       sendMessage(text);
     });
 
