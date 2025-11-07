@@ -2,7 +2,7 @@
 import { onMounted, onUnmounted } from 'vue'
 import feather from 'feather-icons'
 import './chat.css'
-import './chat'
+import { Chat } from './chat';
 
 console.log('Chat.vue loaded');
 // 接受传入 info（可为空），并 emit close / input focus blur
@@ -34,7 +34,7 @@ onMounted(() => {
   // window.initChat 在 chat.js 中定义
   // if (typeof (window as any).initChat === 'function') {
   console.log('Initializing chat with info:', props.info);
-  (window as any).initChat(props.info || { name: '', brief: '', detail: '' })
+  Chat.bootstrap(props.info || { name: '', brief: '', detail: '' })
   // }
 })
 
