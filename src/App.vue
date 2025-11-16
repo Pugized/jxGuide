@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import './assets/jq.min.js';
+// import './assets/jq.min.js';
 </script>
 
 <template>
@@ -10,10 +10,10 @@ import './assets/jq.min.js';
 
 <style>
 :root{
-	--theme-blue: #1e4bbc;
-	/* --theme-blue-bright: #3b82f6; */
-	--theme-blue-bg: #1b3f93b0;
-	--theme-red: rgb(157, 45, 47);
+	--theme-blue: #2447b3;
+	--theme-blue-bright: #467eff;
+	--theme-blue-bg: #103792b0;
+	--theme-red: rgb(142, 38, 40);
 	--theme-red-bright: rgb(219, 0, 51);
 }
 *{
@@ -22,5 +22,12 @@ import './assets/jq.min.js';
 }
 img{
 	-webkit-user-drag: none;
+}
+.jump{
+	color: var(--theme-blue);
+	text-decoration: none;
+}
+.jump:active{
+	opacity: 0.6;
 }
 </style>

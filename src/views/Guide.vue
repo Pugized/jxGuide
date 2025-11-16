@@ -430,6 +430,7 @@ function markerScreenPos(p: Info) {
 <template>
   <div class="guide-page-mobile">
     <section class="map-top" ref="mapRef">
+      <span style="position: absolute; top: 3px;z-index: 10;font-size: 0.9em; color: #00000045;">由 Pugized 团队开发 <a class="jump" href="/about" target="_blank" style="color: var(--theme-blue-bg);">关于我们</a></span>
       <!-- 新：一个容器承载 transform 的图片层与不缩放的覆盖层 -->
       <div class="map-container">
         <!-- 可缩放的图片层 -->
@@ -601,12 +602,13 @@ function markerScreenPos(p: Info) {
   padding: 8px 10px;
   box-shadow: 0 6px 20px rgba(2, 6, 23, 0.12);
   cursor: pointer;
-  transition: scale 100ms;
-  pointer-events: auto; /* 允许点击 */
+  transition: scale 80ms;
+  pointer-events: auto;
+  transform-origin: center left;
 }
 
 .mini-card:active {
-  scale: 0.96;
+  scale: 0.95;
 }
 
 .mini-title {
@@ -675,7 +677,8 @@ function markerScreenPos(p: Info) {
   transition: 100ms;
 }
 .ctrl-btn:active{
-  background-color: #00000015;
+  background-color: #00000018;
+  transform: scale(0.8);
 }
 .ctrl-btn:disabled {
   opacity: 0.5;
@@ -728,6 +731,7 @@ function markerScreenPos(p: Info) {
 .bottom-card.bottom-large {
   height: 75vh;
   background: rgba(255, 255, 255, 0.8);
+  transition: height cubic-bezier(0.21, 1.39, 0.66, 0.98) 300ms;
 }
 
 .bottom-card.bottom-full {

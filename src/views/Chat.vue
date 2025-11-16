@@ -2,7 +2,7 @@
 import { onMounted, onUnmounted } from 'vue'
 import feather from 'feather-icons'
 import './chat.css'
-import { Chat } from './chat';
+import { _init } from './chat';
 
 console.log('Chat.vue loaded');
 // 接受传入 info（可为空），并 emit close / input focus blur
@@ -31,11 +31,11 @@ function onInputFocus() {
 
 // 新增：在组件挂载时调用全局初始化函数，传入获取当前 props.info 的方法
 onMounted(() => {
+  _init();
   // window.initChat 在 chat.js 中定义
   // if (typeof (window as any).initChat === 'function') {
   console.log('Initializing chat with info:', props.info);
-  Chat.bootstrap(props.info || { name: '', brief: '', detail: '' })
-  // }
+  (window as any).initChat(props.info || { name: '', brief: '', detail: '' })
 })
 
 // 新增：组件卸载时停止流并清理全局引用
@@ -77,8 +77,7 @@ onUnmounted(() => {
         <!-- 监听 focus / blur 并通知父组件 -->
         <input id="message-input" class="inp" placeholder="询问 AI" @focus="onInputFocus"></input>
         <div class="button-group">
-          <!-- 新：清空按钮含 x 图标 -->
-          <button id="new-chat-button" class="button" :data-clear-icon="iconClose">
+          <button id="clear-button" class="button" :data-clear-icon="iconClose">
             <span class="btn-icon" v-html="iconClose"></span>
             <span class="btn-text">清空</span>
           </button>
@@ -204,7 +203,8 @@ onUnmounted(() => {
 }
 
 .button:active {
-  filter: brightness(0.8);
+  opacity: 0.7;
+  transform: scale(0.9);
 }
 
 .button:disabled {
