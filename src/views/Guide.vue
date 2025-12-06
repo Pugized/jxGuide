@@ -116,7 +116,7 @@ const scale = ref(1)
 const tx = ref(0) // 平移（像素）
 const ty = ref(0)
 const minScale = ref(0.5)
-const maxScale = ref(3)
+const maxScale = ref(1)
 
 const imgNaturalW = ref(0)
 const imgNaturalH = ref(0)
@@ -323,7 +323,7 @@ function fitToView() {
   scale.value = baseScale
   // 修改：minScale 与初始 fit 一致，保证最小缩放即为 fit
   minScale.value = baseScale
-  maxScale.value = Math.max(1.5, baseScale * 4)
+  maxScale.value = Math.max(0.5, baseScale)
   // 居中
   tx.value = (rect.width - imgW * scale.value) / 2
   ty.value = (rect.height - imgH * scale.value) / 2
@@ -430,7 +430,7 @@ function markerScreenPos(p: Info) {
 <template>
   <div class="guide-page-mobile">
     <section class="map-top" ref="mapRef">
-      <span style="position: absolute; top: 3px;z-index: 10;font-size: 0.9em; color: #00000045;">由 Pugized 团队开发 <a class="jump" href="/about" target="_blank" style="color: var(--theme-blue-bg);">关于我们</a></span>
+      <span style="display: block;position: absolute; top: 3px;z-index: 10;font-size: 0.9em; color: #22222250; background-color: #ffffff40; border-radius: 5px; backdrop-filter: blur(5px);padding: 1px 3px;">由 Pugized 团队开发 <a class="jump" href="/about" target="_blank" style="color: var(--theme-blue-bg);">关于我们</a></span>
       <!-- 新：一个容器承载 transform 的图片层与不缩放的覆盖层 -->
       <div class="map-container">
         <!-- 可缩放的图片层 -->

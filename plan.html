@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>plan</title>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+pre{
+    border-radius: 10px;
+    width: max-content;
+    padding: 20px;
+    max-width: 100%;
+    font-size: 14px;
+    border: 2px solid #a0a0a027;
+    font-family: 'Cascadia Code','Ubuntu Mono', 'Consolas', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI';
+}
+
+code{
+    background-color: #b0b0b043;
+    border-radius: 5px;
+    padding: 3px 5px;
+    font-size: 0.9em;
+    font-family: 'Cascadia Code','Ubuntu Mono', 'Consolas', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI';}
+
+a{
+    color: #2983cc;
+}
+
+a:hover{
+    text-decoration: underline;
+    filter: brightness(1.2);
+}
+
+a:active{
+    opacity: 0.7;
+}
+
+ul, ol{
+    padding-left: 21px;
+}
+
+h1, h2, h3, h4, h5, h6{
+    font-weight: 400;
+}
+
+h1{
+    font-size: 2.5em;
+}
+
+h2{
+    font-size: 2em;
+}
+
+h3{
+    font-size: 1.6em;
+}
+
+h4{
+    font-size: 1.3em;
+}
+
+h5{
+    font-size: 1.1em;
+}
+
+h6{
+    font-size: 0.9em;
+}
+
+blockquote{
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+    margin-inline-start: 10px;
+    margin-inline-end: 0;
+    padding: 5px 5px 5px 15px;
+    border-radius: 0 10px 10px 0;
+    background-color: #f0f0f0;
+    border-left: 3px solid #2983cc;
+}
+blockquote p{
+    margin: 2px 0;
+}
+
+/* 通用表格样式 */
+table {
+    border-collapse: collapse;
+    margin: 5px 0;
+}
+
+/* 表头样式 */
+thead tr {
+    background-color: #dfeaf4;
+    font-weight: bold;
+}
+
+/* 表头单元格样式 */
+th, td {
+    padding: 10px 15px;
+    border: 1px solid #a0a0a070;
+}
+
+tbody tr:nth-of-type(even) {
+    background-color: #f1f1f1;
+}
+</style>
+
+</head>
+<body>
+<h1>jxGuide</h1>
+
+<p><strong>团队名称</strong>：Pugized<br>
+<strong>指导教师</strong>：孙雪梅</p>
+
+<h2>项目背景与目标</h2>
+
+<p>嘉祥常年接待各类外来宾客，包括上级领导、家长等。传统的导览方式主要依赖校领导或专职人员进行现场讲解，存在诸多问题：</p>
+
+<ul>
+<li>校领导讲解负担较重，耗费大量时间和精力。</li>
+<li>参观者提问多，一一解答压力大，效率低。</li>
+</ul>
+
+<p>为此，项目旨在充分利用生成式 AI 的人机交互能力，打造智能化校园导览系统。可以：</p>
+
+<ul>
+<li>减轻工作者的负担；</li>
+<li>提高参观体验；</li>
+<li>展示先进技术，留下更深印象。</li>
+</ul>
+
+<h2>功能</h2>
+
+<h3>1. 地图标记，动态更新</h3>
+
+<ul>
+<li>实时更新客户端的地图上的地点标记，便于得知目前参观位置。</li>
+<li>有介绍文本，便于快速方便地了解信息（考虑语音播报）。</li>
+</ul>
+
+<h3>2. AI 问答、互动</h3>
+
+<ul>
+<li>客户端有聊天区域，参观者可随时询问不解，了解更多。</li>
+<li>可给出个性化回答。充分利用了生成式 AI 的优点，并照顾了参观者的个性体验。</li>
+</ul>
+
+<h3>3. 蓝牙 iBeacon 定位（待定）</h3>
+
+<p>在校园内各处部署蓝牙信标，实现自动定位，帮助参观者实时了解自身位置及周边信息。</p>
+
+<p>若蓝牙定位方案难以实施，备用方案为：由随同导览人员通过手机的管理系统，手动、统一更新参观位置。</p>
+
+<ul>
+<li>陪同人员的管理端可以有广播消息推送的功能，方便通知全体参观者。</li>
+</ul>
+
+<blockquote>
+  <p>若需确定自己的位置，可考虑在一些位置放置二维码。或者使用 NFC 芯片。</p>
+</blockquote>
+
+<h2>技术</h2>
+
+<table>
+<thead>
+<tr>
+  <th>组件</th>
+  <th>技术选型</th>
+  <th>人员安排</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+  <td>客户端+管理端</td>
+  <td>vue.js</td>
+  <td>谭景元</td>
+</tr>
+<tr>
+  <td>后端</td>
+  <td>Rust（暂定）</td>
+  <td><s>余涵</s> 谭景元</td>
+</tr>
+<tr>
+  <td>语音播报合成</td>
+  <td>购买相关 token</td>
+  <td>夏威夷</td>
+</tr>
+<tr>
+  <td>定位</td>
+  <td>蓝牙信标 / NFC / 二维码</td>
+  <td>沈仲仪</td>
+</tr>
+</tbody>
+</table>
+
+<h2>其他人员安排</h2>
+
+<p><strong>队长</strong> 徐图：统筹安排</p>
+
+<p>待分配：</p>
+
+<ol>
+<li><strong>宣传工作</strong> PPT 等制作</li>
+<li>书面工作、沟通交流、经费管理等</li>
+</ol>
+
+</body>
+</html>

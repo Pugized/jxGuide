@@ -1,0 +1,21 @@
+<table>
+   <tr>
+       <td>分工</td>
+       <td>人员</td>
+       <td>具体工作</td>
+   </tr>
+   <tr>
+       <td>队长</td>
+       <td>徐图</td>
+       <td>统筹安排</td>
+   </tr>
+   <tr>
+       <td rowspan="2">技术</td>
+       <td>谭景元</td>
+       <td>前、后端开发</td>
+   </tr>
+   <tr>
+       <td>沈仲仪</td>
+       <td>硬件</td>
+   </tr>
+</table>

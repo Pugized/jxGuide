@@ -1,4 +1,4 @@
-import { API_KEY,AI_ROLE } from '../config.js';
+import { API_KEY,AI_ROLE,ABOUT_SCHOOL } from '../config.js';
 
 let currentInfo:any={};
 
@@ -234,12 +234,17 @@ export function _init() {
       const messagesForApi = [];
 
       // system 信息
-      const context = `你的名字叫${AI_ROLE}，你将为来到成都市锦江区嘉祥外国语学校的来宾介绍学校。
-      现在用户正在${currentInfo.name || '学校大门'}。
-      有一些关于${currentInfo.name || '学校大门'}的相关信息：
+      const context = `你的名字叫${AI_ROLE}，你正在为来到成都市锦江区嘉祥外国语学校的来宾介绍学校。
+      现在用户正在${currentInfo.name}。请根据下面提供的相关信息，简明回答来宾的提问。
+      
+      1. 关于“${currentInfo.name}”的相关信息：
       简介：${currentInfo.brief || '暂无'}
       详细：${currentInfo.detail || '暂无'}
-      若果没有相关信息，请据实回答不要编造。若果用户询问无关的问题，请礼貌拒绝回答。`;
+
+      2. 关于学校的更多信息：
+      ${ABOUT_SCHOOL}
+
+      如果没有相关信息，请明确回答不知道，禁止编造、猜测和联想。如果用户询问无关的问题，请礼貌拒绝回答。`;
       console.log('Context for AI:', context);
       if (context)
           messagesForApi.push({ role: "system", content: context });
